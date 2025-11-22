@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfectly Posed by Tameron | Photography Portfolio</title>
+    <!-- Load Tailwind CSS for utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* Define custom colors and fonts for a consistent look */
+        :root {
+            --primary: #E7C693; /* Golden/Bronze accent */
+            --dark-bg: #111827;
+            --dark-card: #1F2937;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Custom font for titles - typically Playfair Display, but using Inter as standard fallback */
+        .font-serif-alt {
+            font-family: 'Playfair Display', Georgia, serif; 
+        }
+
+        /* Smooth scrollbar styling */
+        body::-webkit-scrollbar { width: 8px; }
+        body::-webkit-scrollbar-track { background: var(--dark-bg); }
+        body::-webkit-scrollbar-thumb {
+            background-color: var(--primary);
+            border-radius: 4px;
+        }
+
+        /* Utility class for primary color text and border */
+        .text-primary { color: var(--primary); }
+        .bg-dark-card { background-color: var(--dark-card); }
+
+        /* Animation for image hover effect */
+        .gallery-image {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .gallery-image:hover {
+            opacity: 0.85;
+            transform: scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Custom style for the message box (instead of alert) */
+        #messageBox {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        #messageBox.show {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-dark-card shadow-xl sticky top-0 z-50 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-serif-alt font-bold tracking-widest text-primary">
+                perfectly posed
+                <span class="block text-sm font-sans font-light tracking-normal text-gray-400">by tameron</span>
+            </h1>
+            <nav>
+                <ul class="flex space-x-4 md:space-x-8 text-sm font-medium">
+                    <li><a href="#portfolio" class="hover:text-primary transition duration-300 p-2 rounded-md hover:bg-gray-800">Portfolio</a></li>
+                    <li><a href="#about" class="hover:text-primary transition duration-300 p-2 rounded-md hover:bg-gray-800">About</a></li>
+                    <li><a href="#contact" class="hover:text-primary transition duration-300 p-2 rounded-md hover:bg-gray-800">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-96 md:h-[500px] flex items-center justify-center bg-cover bg-center" style="background-image: url('https://placehold.co/1200x500/171717/E7C693?text=A+Moment+Captured+Forever');">
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+        <div class="z-10 text-center p-4">
+            <h2 class="text-4xl sm:text-7xl font-serif-alt font-extrabold text-white mb-4 drop-shadow-2xl tracking-tight">
+                Art of the Immutable Moment
+            </h2>
+            <p class="text-lg md:text-xl text-primary font-medium border-t border-b border-primary/50 py-1 inline-block">Where every pose is poetry.</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h3 class="text-4xl sm:text-5xl font-serif-alt font-bold text-center mb-12 text-primary">The Work</h3>
+
+        <!-- Tab Navigation -->
+        <div class="flex justify-center space-x-2 sm:space-x-6 mb-10 border-b border-gray-700">
+            <button id="btn-weddings" onclick="switchTab('weddings')" class="tab-button pb-3 px-4 text-sm sm:text-base font-medium border-b-2 transition duration-300 focus:outline-none">
+                Weddings
+            </button>
+            <button id="btn-portraits" onclick="switchTab('portraits')" class="tab-button pb-3 px-4 text-sm sm:text-base font-medium border-b-2 transition duration-300 focus:outline-none">
+                Portraits
+            </button>
+            <button id="btn-commercial" onclick="switchTab('commercial')" class="tab-button pb-3 px-4 text-sm sm:text-base font-medium border-b-2 transition duration-300 focus:outline-none">
+                Commercial
+            </button>
+        </div>
+
+        <!-- Gallery Content - Weddings -->
+        <div id="weddings" class="gallery-section grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <img src="https://placehold.co/600x800/292F38/E7C693?text=Wedding+1" alt="Wedding Photography 1" class="w-full h-auto object-cover rounded-lg shadow-xl gallery-image">
+            <img src="https://placehold.co/800x600/292F38/E7C693?text=Wedding+2" alt="Wedding Photography 2" class="w-full h-auto object-cover rounded-lg shadow-xl gallery-image">
+            <img src="https://placehold.co/600x800/292F38/E7C693?text=Wedding+3" alt="Wedding Photography 3" class="w-full h-auto object-cover rounded-lg shadow-xl gallery-image">
+            <img src="https://placehold.co/800x600/292F38/E7C693?text=Wedding+4" alt="Wedding Photography 4" class="w-full h-auto object-cover rounded-lg shadow-xl gallery-image">
+        </div>
+
+        <!-- Gallery Content - Portraits -->
+        <div id="portraits" class="gallery-section hidden grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <img src="https://placehold.co/800x800/3A404A/E7C693?text=Portrait+1" alt="Portrait Photography 1" class="w-full h-auto object-cover rounded-lg shadow-xl gallery-image">
+            <img src="https://placehold.co/600x900/3A404A/E7C693?text=Portrait+2" alt="Portrait Photography 2" class="w-full h-auto object-cover rounded-lg shadow-xl gallery-image">
+            <img src="https://placehold.co/900x600/3A404A/E7C693?text=Portrait+3" alt="Portrait Photography 3" class="w-full h-auto object-cover rounded-lg shadow-xl gallery-image">
+            <img src="https://placehold.co/800x800/3A404A/E7C693?text=Portrait+4" alt="Portrait Photography 4" class="w-full h-auto object-cover rounded-lg shadow-xl gallery-image">
+        </div>
+
+        <!-- Gallery Content - Commercial -->
+        <div id="commercial" class="gallery-section hidden grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <img src="https://placehold.co/800x600/1C2333/E7C693?text=Commercial+1" alt="Commercial Photography 1" class="w-full h-auto object-cover rounded-lg shadow-xl gallery-image">
+            <img src="https://placehold.co/600x900/1C2333/E7C693?text=Commercial+2" alt="Commercial Photography 2" class="w-full h-auto object-cover rounded-lg shadow-xl gallery-image">
+            <img src="https://placehold.co/900x600/1C2333/E7C693?text=Commercial+3" alt="Commercial Photography 3" class="w-full h-auto object-cover rounded-lg shadow-xl gallery-image">
+            <img src="https://placehold.co/800x800/1C2333/E7C693?text=Commercial+4" alt="Commercial Photography 4" class="w-full h-auto object-cover rounded-lg shadow-xl gallery-image">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-24 bg-dark-card border-t border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2">
+                <h3 class="text-4xl font-serif-alt font-bold mb-6 text-primary">Meet Tameron</h3>
+                <p class="text-gray-300 mb-4 text-lg leading-relaxed">
+                    Hello! I'm Tameron. My specialization lies in capturing the genuine, often fleeting moments that tell your unique story. With over a decade behind the lens, my style blends journalistic candidness with beautifully orchestrated portraiture, ensuring every image feels both authentic and breathtakingly posed.
+                </p>
+                <p class="text-gray-400">
+                    My approach is simple: great photography happens when trust is built. I work closely with my clients to understand their vision, whether it's the intimate joy of a wedding, the powerful statement of a professional portrait, or the polished aesthetic of commercial branding. Let's create something unforgettable.
+                </p>
+            </div>
+            <div class="md:w-1/2">
+                <!-- Using a slightly different placeholder image here for variety -->
+                <img src="https://placehold.co/600x400/292F38/E7C693?text=Tameron's+Studio+Portrait" alt="Tameron's Studio Portrait" class="w-full h-auto object-cover rounded-lg shadow-2xl border-2 border-primary/50">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h3 class="text-4xl font-serif-alt font-bold text-center mb-10 text-primary">Get in Touch</h3>
+        <div class="bg-dark-card p-8 rounded-xl shadow-2xl border border-gray-700">
+            <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                <div class="mb-6">
+                    <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+                    <input type="text" id="name" class="w-full p-3 bg-dark-bg border border-gray-600 rounded-lg focus:ring-primary focus:border-primary transition duration-200" placeholder="Your Name" required>
+                </div>
+                <div class="mb-6">
+                    <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                    <input type="email" id="email" class="w-full p-3 bg-dark-bg border border-gray-600 rounded-lg focus:ring-primary focus:border-primary transition duration-200" placeholder="your@email.com" required>
+                </div>
+                <div class="mb-6">
+                    <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                    <textarea id="message" rows="4" class="w-full p-3 bg-dark-bg border border-gray-600 rounded-lg focus:ring-primary focus:border-primary transition duration-200" placeholder="Tell Tameron about your project..." required></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 bg-primary text-dark-bg font-bold rounded-lg shadow-xl hover:bg-opacity-90 transition duration-300 transform hover:scale-[1.01] focus:outline-none focus:ring-4 focus:ring-primary/50">
+                    Send Inquiry
+                </button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Custom Message Box (Replaces alert()) -->
+    <div id="messageBox">
+        <p id="messageContent">Thank you for your message! Tameron will be in touch shortly.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black text-gray-500 py-8 mt-12 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            <p>&copy; 2025 Perfectly Posed by Tameron. All rights reserved.</p>
+            <p class="mt-2">Photography Portfolio Demo | Vanilla HTML/CSS/JS.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Data structure for the tab content
+        const categories = ['weddings', 'portraits', 'commercial'];
+
+        /**
+         * Shows a custom message box instead of using the alert() function.
+         * @param {string} message The message to display.
+         */
+        function showMessageBox(message) {
+            const messageBox = document.getElementById('messageBox');
+            const messageContent = document.getElementById('messageContent');
+            messageContent.textContent = message;
+
+            // Show the box
+            messageBox.classList.add('show');
+
+            // Hide the box after 3 seconds
+            setTimeout(() => {
+                messageBox.classList.remove('show');
+            }, 3000);
+        }
+
+        /**
+         * Switches the active gallery tab.
+         * @param {string} category The category key (weddings, portraits, commercial).
+         */
+        function switchTab(category) {
+            // Hide all gallery sections
+            document.querySelectorAll('.gallery-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            // Show the selected section
+            document.getElementById(category).classList.remove('hidden');
+
+            // Update active state for buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('border-primary', 'text-primary');
+                button.classList.add('border-transparent', 'text-gray-400', 'hover:text-gray-200');
+            });
+
+            // Set active state for the clicked button
+            const activeBtn = document.getElementById(`btn-${category}`);
+            if (activeBtn) {
+                activeBtn.classList.add('border-primary', 'text-primary');
+                activeBtn.classList.remove('border-transparent', 'text-gray-400', 'hover:text-gray-200');
+            }
+        }
+
+        /**
+         * Handles the contact form submission.
+         * @param {Event} event The form submission event.
+         */
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            // In a real app, you would collect form data and send it to a server.
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            console.log('Form Submitted:', { name, email, message });
+            
+            // Show success message using the custom message box
+            showMessageBox(`Thank you, ${name}! Your inquiry has been sent. Tameron will be in touch shortly.`);
+
+            // Reset the form after submission
+            document.getElementById('contactForm').reset();
+        }
+
+        // Initialize: switch to the first tab on load
+        window.onload = () => {
+            // Ensure the Tailwind JIT is run on initial load (though not strictly needed in browser context, good practice)
+            // And initialize the gallery view
+            switchTab(categories[0]);
+        };
+    </script>
+</body>
+</html>

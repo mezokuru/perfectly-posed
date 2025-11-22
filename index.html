@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Demos - Perfectly Posed by Tameron</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a1128 0%, #1a1a2e 100%);
+            color: #f8f6f0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .gift-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 1rem;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: rgba(248, 246, 240, 0.7);
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .demos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .demo-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #d4af37, #f0d87f);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.5);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .demo-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .demo-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            color: rgba(212, 175, 55, 0.2);
+            font-weight: 300;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .demo-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #f8f6f0;
+        }
+
+        .demo-vibe {
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+
+        .demo-description {
+            color: rgba(248, 246, 240, 0.7);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .demo-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .demo-features li {
+            font-size: 0.85rem;
+            color: rgba(248, 246, 240, 0.6);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .demo-features li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+        }
+
+        .demo-link {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            background: transparent;
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #d4af37;
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .demo-link:hover::before {
+            left: 0;
+        }
+
+        .demo-link:hover {
+            color: #0a1128;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .footer p {
+            font-size: 0.85rem;
+            color: rgba(248, 246, 240, 0.5);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer .signature {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #d4af37;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .demo-card {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .demo-card:nth-child(1) { animation-delay: 0.2s; }
+        .demo-card:nth-child(2) { animation-delay: 0.4s; }
+        .demo-card:nth-child(3) { animation-delay: 0.6s; }
+        .demo-card:nth-child(4) { animation-delay: 0.8s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .demos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .demo-number {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="gift-tag">✦ A Gift For You ✦</div>
+            <h1>Choose Your Vision</h1>
+            <p class="subtitle">Four unique portfolio experiences, each crafted to showcase your artistry. Explore each demo, interact with the design, and choose the one that speaks to your soul.</p>
+        </div>
+
+        <div class="demos-grid">
+            <!-- Demo 1: Post-Modern Minimalist -->
+            <div class="demo-card">
+                <div class="demo-number">01</div>
+                <h2 class="demo-title">The Bold Statement</h2>
+                <p class="demo-vibe">Post-Modern Minimalist</p>
+                <p class="demo-description">Dark, editorial, and unapologetically modern. For the photographer who commands attention and isn't afraid to make a statement.</p>
+                <ul class="demo-features">
+                    <li>Custom cursor interaction</li>
+                    <li>Kinetic typography animations</li>
+                    <li>Mix-blend-mode navigation</li>
+                    <li>Scroll-triggered reveals</li>
+                </ul>
+                <a href="theboldstatement.html" class="demo-link" target="_blank">Explore Demo</a>
+            </div>
+
+            <!-- Demo 2: Soft & Feminine -->
+            <div class="demo-card">
+                <div class="demo-number">02</div>
+                <h2 class="demo-title">Soft & Timeless</h2>
+                <p class="demo-vibe">Feminine Elegance</p>
+                <p class="demo-description">Gentle, floral, and sophisticated. Warm neutrals meet elegant typography for a romantic, intimate aesthetic that feels like home.</p>
+                <ul class="demo-features">
+                    <li>Floating botanical elements</li>
+                    <li>Glassmorphism design</li>
+                    <li>Soft color palette</li>
+                    <li>Organic animations</li>
+                </ul>
+                <a href="soft&timeless.html" class="demo-link" target="_blank">Explore Demo</a>
+            </div>
+
+            <!-- Demo 3: The Trump Card -->
+            <div class="demo-card">
+                <div class="demo-number">03</div>
+                <h2 class="demo-title">The Luxury Experience</h2>
+                <p class="demo-vibe">Cinematic Premium</p>
+                <p class="demo-description">The ultimate portfolio experience. Cinematic loader, parallax effects, bento grid layout, and interactions that will leave clients speechless.</p>
+                <ul class="demo-features">
+                    <li>Cinematic loading sequence</li>
+                    <li>Advanced cursor system</li>
+                    <li>Bento grid portfolio</li>
+                    <li>Magnetic button effects</li>
+                </ul>
+                <a href="theluxuryexperience.html" class="demo-link" target="_blank">Explore Demo</a>
+            </div>
+
+            <!-- Demo 4: Alternative Style -->
+            <div class="demo-card">
+                <div class="demo-number">04</div>
+                <h2 class="demo-title">The Professional</h2>
+                <p class="demo-vibe">Polished & Refined</p>
+                <p class="demo-description">A sophisticated approach with tabbed galleries, smooth transitions, and a focus on showcasing your work with professional elegance.</p>
+                <ul class="demo-features">
+                    <li>Tabbed portfolio sections</li>
+                    <li>Smooth gallery transitions</li>
+                    <li>Clean navigation system</li>
+                    <li>Professional aesthetic</li>
+                </ul>
+                <a href="theprofessional.html" class="demo-link" target="_blank">Explore Demo</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Take your time. Explore each one. There's no wrong choice.</p>
+            <p>Once you've decided, we'll make it completely yours.</p>
+            <p class="signature">Crafted with care by RCM</p>
+        </div>
+    </div>
+</body>
+</html>
