@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — Perfectly Posed by Tameron</title>
+  <meta name="description" content="Get in touch to book your photography session." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#f6e6e9"/>
+                <stop offset="1" stop-color="#bfcfbd"/>
+              </linearGradient>
+            </defs>
+            <path d="M48 84 C48 64, 70 62, 72 44 C74 28, 54 18, 44 28 C36 36, 36 46, 50 54" fill="none" stroke="url(#g1)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div>
+          <h1>Lorem Ipsum Dolor</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="cta">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-header">
+        <div class="eyebrow">Let's Connect</div>
+        <h2 class="hero-title">Get in Touch</h2>
+        <p class="hero-sub">I'd love to hear about your vision and create something beautiful together.</p>
+      </section>
+
+      <section class="contact-page">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Contact Information</h3>
+            <div class="info-item">
+              <strong>Email</strong>
+              <p><a href="mailto:hello@perfectlyposed.com">hello@perfectlyposed.com</a></p>
+            </div>
+            <div class="info-item">
+              <strong>Phone</strong>
+              <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+            </div>
+            <div class="info-item">
+              <strong>Location</strong>
+              <p>Based in [City], available for travel</p>
+            </div>
+            <div class="info-item">
+              <strong>Follow Along</strong>
+              <div class="social-links">
+                <a href="#" aria-label="Instagram">Instagram</a>
+                <a href="#" aria-label="Pinterest">Pinterest</a>
+                <a href="#" aria-label="Facebook">Facebook</a>
+              </div>
+            </div>
+            
+            <div class="info-note">
+              <p><strong>Response Time:</strong> I typically respond within 24-48 hours. If you don't hear from me, please check your spam folder or reach out via social media.</p>
+            </div>
+          </div>
+
+          <div class="contact-form-wrapper">
+            <div class="contact">
+              <h3 style="font-family:'Playfair Display',serif;margin-top:0;margin-bottom:12px">Send a Message</h3>
+              <form onsubmit="event.preventDefault();alert('Thanks — this demo form is non-functional. Replace with your backend or mailto link.');">
+                <input type="text" name="name" placeholder="Your name*" required />
+                <input type="email" name="email" placeholder="Email*" required />
+                <input type="tel" name="phone" placeholder="Phone number" />
+                <input type="text" name="date" placeholder="Event date (optional)" />
+                <select name="service" required>
+                  <option value="">Select a service*</option>
+                  <option value="wedding">Wedding/Elopement</option>
+                  <option value="engagement">Engagement</option>
+                  <option value="couples">Couples Session</option>
+                  <option value="maternity">Maternity</option>
+                  <option value="newborn">Newborn</option>
+                  <option value="family">Family/Lifestyle</option>
+                  <option value="portrait">Portrait/Headshot</option>
+                  <option value="event">Event/Celebration</option>
+                  <option value="brand">Brand/Commercial</option>
+                  <option value="boudoir">Boudoir</option>
+                  <option value="other">Other</option>
+                </select>
+                <textarea name="message" placeholder="Tell me about your vision — location, vibe, what you're looking for..." required></textarea>
+                <div class="submit"><button class="btn primary" type="submit">Send Enquiry</button></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:center">
+          <div>&copy; 2025 Perfectly Posed by Tameron</div>
+          <div style="color:var(--muted)">Demo created by RCM</div>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
