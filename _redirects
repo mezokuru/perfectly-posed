@@ -1,0 +1,8 @@
+# Netlify Redirects
+# https://docs.netlify.com/routing/redirects/
+
+# Redirect old paths (if any)
+# /old-path /new-path 301
+
+# Custom 404 page
+/* /404.html 404
