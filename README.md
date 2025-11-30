@@ -1,4 +1,4 @@
-# Perfectly Posed by Tameron
+# Perfectly Posed by Tamaryn
 
 A soft, timeless photography portfolio website featuring elegant design, masonry gallery layouts, and comprehensive service showcases.
 
@@ -182,8 +182,8 @@ Upload all files to your web host via FTP/SFTP. No build process required - all 
 
 ## Credits
 
-Design & Development: RCM  
-Photography: Perfectly Posed by Tameron
+Design & Development: [mezokuru](https://mezokuru.xyz)  
+Photography: Perfectly Posed by Tamaryn
 
 ## License
 
@@ -192,3 +192,4 @@ All rights reserved. Portfolio content and design are proprietary.
 ---
 
 **Ready to launch?** See QUICKSTART.md to get started!
+

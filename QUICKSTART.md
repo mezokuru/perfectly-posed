@@ -212,3 +212,4 @@ Edit `index.html` and `about.html`, add to services section:
 **Congratulations!** 🎉 Your photography portfolio is live!
 
 Share it with the world and start booking clients.
+

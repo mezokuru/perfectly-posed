@@ -301,3 +301,4 @@ Run by double-clicking the file.
 ---
 
 **Pro Tip**: Optimize images before uploading. It's easier than optimizing after deployment!
+
