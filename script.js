@@ -47,7 +47,10 @@ if(document.querySelector('.gallery-filters')){
 }
 
 // Lightbox functionality
-(function(){
+function initLightbox(){
+  // Check if gallery exists on this page
+  if(!document.querySelector('.gallery')) return;
+  
   const lightbox = document.createElement('div');
   lightbox.className = 'lightbox';
   lightbox.innerHTML = `
@@ -84,9 +87,10 @@ if(document.querySelector('.gallery-filters')){
   
   function updateLightboxImage(){
     const img = galleryImages[currentIndex];
-    lightboxImg.src = img.querySelector('img').src;
-    lightboxImg.alt = img.querySelector('img').alt;
-    lightboxCaption.textContent = img.querySelector('img').alt;
+    const imgElement = img.querySelector('img');
+    lightboxImg.src = imgElement.src;
+    lightboxImg.alt = imgElement.alt;
+    lightboxCaption.textContent = imgElement.alt;
   }
   
   function showNext(){
@@ -116,17 +120,20 @@ if(document.querySelector('.gallery-filters')){
   });
   
   // Attach to gallery images
-  document.querySelectorAll('.gallery .photo').forEach((photo, index) => {
+  const photos = document.querySelectorAll('.gallery .photo');
+  photos.forEach((photo) => {
     photo.addEventListener('click', (e) => {
       e.preventDefault();
+      // Get all visible photos
       galleryImages = Array.from(document.querySelectorAll('.gallery .photo:not(.hidden)'));
       const visibleIndex = galleryImages.indexOf(photo);
       if(visibleIndex !== -1) openLightbox(visibleIndex);
     });
   });
-})();
+}
 
-// Page loading animation
+// Page loading animation and initialization
 window.addEventListener('load', () => {
   document.body.classList.add('loaded');
+  initLightbox();
 });
